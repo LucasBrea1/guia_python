@@ -1,14 +1,11 @@
 import socket
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 s.bind(("localhost",12345))
-s.listen()
 
-conn, addr = s.accept()
+data, addr = s.recvfrom(1024)
 
-data = conn.recv(1024)
-
-conn.sendall("Message for client".encode())
+s.sendto("Message for client".encode(), addr)
 
 print(data)
