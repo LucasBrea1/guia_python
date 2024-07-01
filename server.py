@@ -2,7 +2,7 @@ import socket
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-s.bind(("localhost",12345))
+s.bind(("192.2.6.109" ,12345))
 
 data, addr = s.recvfrom(1024)
 
